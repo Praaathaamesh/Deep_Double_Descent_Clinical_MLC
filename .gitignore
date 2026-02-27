@@ -212,5 +212,5 @@ logs/
 # ignore pickled data
 datasets/
 
-# ignore the plots
+# Pictures
 *.png
