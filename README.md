@@ -12,6 +12,11 @@
 - Epoch-wise Deep Double Descent, increasing epochs prevents overfitting, since number of epochs are function of variance.
 - Sample-wise non-monotonicity demonstrates that elevated dataset size affects the model performance in the negative manner.
 
+## What is the Repository All About?
+- This repository offers comprehensive scripts as well as proper documented progress of notebooks.
+- Epoch Deep descent was demostrated for both MLC and MCC type of classifications done using DL models.
+- MCC notebook also defines how different noise levels affect the models "long-due" convergence to a second descent in overparameterised region.
+
 ## References
 - Wagner, P., Strodthoff, N., Bousseljot, R., Samek, W., & Schaeffter, T. (2022). PTB-XL, a large publicly available electrocardiography dataset (version 1.0.3). PhysioNet. RRID:SCR_007345. https://doi.org/10.13026/kfzx-aw45
 - Preetum Nakkiran, Kaplun, G., Bansal, Y., Yang, T., Barak, B., & Ilya Sutskever. (2019). Deep Double Descent: Where Bigger Models and More Data Hurt. https://doi.org/10.48550/arxiv.1912.02292
@@ -19,3 +24,6 @@
 ## Notes
 > [!WARNING]
 > Contents of this repository will be refactored till the completion of the assignment.
+
+>[!IMPORTANT]
+> Make sure to fork and reference this repository for a further documented use on this site.
