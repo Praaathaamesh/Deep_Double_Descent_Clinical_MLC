@@ -1,4 +1,4 @@
-from mlc_epoch_doubdesc_pipeline import run_experiment, plot_double_descent
+from mlc_epoch_doubdesc_pipeline import run_experiment, plot_double_descent, plot_heatmap
 
 if __name__ == "__main__":
     
@@ -8,3 +8,6 @@ if __name__ == "__main__":
 
     # plot the epoch dd mlc graph
     plot_double_descent(history, title_suffix='(noise=15%, width=64)')
+    
+    # plot heatmap per loss type
+    plot_heatmap(history, title_suffix='Heatmap per Loss Type')
