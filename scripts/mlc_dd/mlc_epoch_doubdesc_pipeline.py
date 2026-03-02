@@ -6,6 +6,7 @@ import pickle
 import datetime
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import tensorflow as tf
 from keras import layers
 import matplotlib.pyplot as plt
@@ -285,4 +286,36 @@ def plot_double_descent(history, title_suffix=''):
     
     plt.tight_layout()
     plt.savefig('double_descent_multilabel.png', dpi=150)
+    plt.show()
+
+    # create heatmaps
+def plot_heatmap(history, title_suffix = ""):
+    epochs = range(1, len(history.train_losses) + 1)
+    fig, (ax1, ax2, ax3)= plt.subplots(1, 3, figsize=(16, 8), sharex=True)
+
+    # Heatmap for train loss per epoch
+    sns.heatmap(pd.DataFrame(history.train_losses, epochs), cmap = "mako",ax = ax1)
+    ax1.set_xlabel("Train Loss")
+    ax1.set_ylabel("Epochs")
+    ax1.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+    epoch_sparse = np.arange(0, 400, 50)
+    ax1.set_yticks(epoch_sparse)
+    ax1.set_yticklabels(epoch_sparse)
+
+    # Heatmap for evaluation loss per epoch
+    sns.heatmap(pd.DataFrame(history.val_losses, epochs), cmap = "mako",ax = ax2)
+    ax2.set_xlabel("Test Loss")
+    ax2.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+    ax2.set_yticks(epoch_sparse)
+    ax2.set_yticklabels(epoch_sparse)
+    ax2.set_title(f"Epoch-wise Deep Double Descent {title_suffix}")
+
+    # Heatmap for hamming loss per epoch
+    sns.heatmap(pd.DataFrame(history.val_hl, epochs), cmap = "mako",ax = ax3)
+    ax3.set_xlabel("Hamming Loss")
+    ax3.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+    ax3.set_yticks(epoch_sparse)
+    ax3.set_yticklabels(epoch_sparse)
+
+    plt.tight_layout()
     plt.show()
