@@ -1,7 +1,6 @@
 from mlc_epoch_doubdesc_pipeline import run_experiment, plot_double_descent, plot_heatmap
 
-if __name__ == "__main__":
-    
+def main():
     # propagate the trail run
     history = run_experiment(noise_rate=0.15, width=64, subset_size=3000, epochs=400)
     print(history)
@@ -11,3 +10,6 @@ if __name__ == "__main__":
     
     # plot heatmap per loss type
     plot_heatmap(history, title_suffix='Heatmap per Loss Type')
+
+if __name__ == "__main__":
+    main()
